@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.nibodha.ear.model;
+package com.nibodha.smart.inquiry.qualifier.model;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.nibodha.ear.service;
+package com.nibodha.smart.inquiry.qualifier.service;
 
 import java.io.StringReader;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import com.nibodha.ear.common.EARUtils;
+import com.nibodha.smart.inquiry.qualifier.common.Utils;
 
 /**
  * @author Suresh Kumar S
@@ -17,13 +17,13 @@ import com.nibodha.ear.common.EARUtils;
  */
 
 @Service
-public class EARServiceImpl implements EARServiceInter {
+public class ServiceImpl implements ServiceInter {
 
 	@Override
 	public double getGuessworkScore(String productURL, String email) {
 		double score = 0.0;
-		String url = EARUtils.formUrl(productURL, email);
-		StringReader jsonReader = EARUtils.getResponse(url);
+		String url = Utils.formUrl(productURL, email);
+		StringReader jsonReader = Utils.getResponse(url);
 		if(jsonReader == null) return 0.0; 
 		JsonElement result = new JsonParser().parse(jsonReader);
 		if(result.getAsJsonObject().get("status").getAsString().equalsIgnoreCase("yes")){
@@ -33,7 +33,7 @@ public class EARServiceImpl implements EARServiceInter {
 	}
 	
 	/*public static void main(String[] args) {
-		System.out.println(new EARServiceImpl().getGuessworkScore("http://cloud.google.com", "shasureshkumar@gmail.com"));
+		System.out.println(new ServiceImpl().getGuessworkScore("http://cloud.google.com", "shasureshkumar@gmail.com"));
 	}*/
 
 }

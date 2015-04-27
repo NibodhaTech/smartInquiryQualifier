@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.nibodha.ear.controller;
+package com.nibodha.smart.inquiry.qualifier.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nibodha.ear.model.Entity;
-import com.nibodha.ear.service.EARServiceInter;
-import com.nibodha.ear.web.model.EntityContext;
-import com.nibodha.ear.web.model.Score;
-import com.nibodha.ear.wrapper.EntityContextWrapper;
-import com.nibodha.ear.wrapper.EntityWrapper;
+import com.nibodha.smart.inquiry.qualifier.model.Entity;
+import com.nibodha.smart.inquiry.qualifier.service.ServiceInter;
+import com.nibodha.smart.inquiry.qualifier.web.model.EntityContext;
+import com.nibodha.smart.inquiry.qualifier.web.model.Score;
+import com.nibodha.smart.inquiry.qualifier.wrapper.EntityContextWrapper;
+import com.nibodha.smart.inquiry.qualifier.wrapper.EntityWrapper;
 
 /**
  * @author Suresh Kumar S
@@ -27,9 +27,9 @@ import com.nibodha.ear.wrapper.EntityWrapper;
  */
 
 @RestController
-public class EmailAutoResponderController {
+public class Controller {
 	@Autowired
-	EARServiceInter earServiceInter;
+	ServiceInter serviceInter;
 	
 	@RequestMapping(value="/smartinquiry", method=RequestMethod.POST,consumes="application/json",produces="application/json")
 	@ResponseBody
@@ -44,7 +44,7 @@ public class EmailAutoResponderController {
 				entityContext.setProductURL(entity.getProductURL());
 				List<Score> scores = new ArrayList<Score>();
 				for(String email : entity.getEmailIds()){
-					scores.add(new Score(email, earServiceInter.getGuessworkScore(entity.getProductURL(), email)));
+					scores.add(new Score(email, serviceInter.getGuessworkScore(entity.getProductURL(), email)));
 				}
 				Collections.sort(scores);
 				entityContext.setScores(scores);

@@ -1,12 +1,12 @@
 /**
  * 
  */
-package com.nibodha.ear.wrapper;
+package com.nibodha.smart.inquiry.qualifier.wrapper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.nibodha.ear.model.Entity;
+import com.nibodha.smart.inquiry.qualifier.model.Entity;
 
 /**
  * @author Suresh Kumar S

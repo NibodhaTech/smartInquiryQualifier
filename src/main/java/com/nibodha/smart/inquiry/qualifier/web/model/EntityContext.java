@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.nibodha.ear.web.model;
+package com.nibodha.smart.inquiry.qualifier.web.model;
 
 import java.util.List;
 

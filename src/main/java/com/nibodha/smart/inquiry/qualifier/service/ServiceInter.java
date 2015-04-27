@@ -1,12 +1,12 @@
 /**
  * 
  */
-package com.nibodha.ear.service;
+package com.nibodha.smart.inquiry.qualifier.service;
 
 /**
  * @author Suresh Kumar S
  *
  */
-public interface EARServiceInter {
+public interface ServiceInter {
 	public double getGuessworkScore(String productURL, String email);
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.nibodha.ear.common;
+package com.nibodha.smart.inquiry.qualifier.common;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import java.net.URLEncoder;
  * @author Suresh Kumar S
  *
  */
-public class EARUtils {
+public class Utils {
 	public static final String BASE_URL = "http://api.guesswork.co/v1/customer/fitment";
 	
 	public static String formUrl(String productURL, String email){
@@ -25,7 +25,7 @@ public class EARUtils {
 		StringBuilder requestUrl = new StringBuilder();
 		try {
 			requestUrl.append(BASE_URL);
-			requestUrl.append("?token=" + URLEncoder.encode(EARConstants.TOKEN, "UTF-8"));
+			requestUrl.append("?token=" + URLEncoder.encode(Constants.TOKEN, "UTF-8"));
 			requestUrl.append("&url=" + productURL);
 			requestUrl.append("&email=" + email);
 		} catch (Exception e) {
